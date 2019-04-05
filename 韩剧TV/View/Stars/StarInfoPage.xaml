@@ -1,0 +1,57 @@
+﻿<Page
+    x:Class="韩剧TV.View.StarInfoPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:韩剧TV.View"
+    xmlns:media="using:Microsoft.Toolkit.Uwp.UI.Media"
+    xmlns:cvt="using:韩剧TV.MyConverts" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ms-appx:///Themes/MyTemplates.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="60*"/>
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="120"/>
+                <RowDefinition Height="70*"/>
+                <RowDefinition Height="60*"/>
+            </Grid.RowDefinitions>
+            <Image Grid.RowSpan="4" Stretch="UniformToFill" Source="/Assets/star_detail_backgroud_02.png"/>
+            <Border Grid.RowSpan="4">
+                <Border.Background>
+                    <media:BackdropBlurBrush Amount="6"/>
+                </Border.Background>
+            </Border>
+            <Button Content="关注" Click="Button_Click" Margin="5" FontSize="10" Background="Transparent" Foreground="White" BorderBrush="HotPink" BorderThickness="1" HorizontalAlignment="Right"/>
+            <Ellipse Grid.Row="1" Width="120" Height="120">
+                <Ellipse.Fill>
+                    <ImageBrush ImageSource="{x:Bind star.thumb}"/>
+                </Ellipse.Fill>
+            </Ellipse>
+            <TextBlock Text="{x:Bind star.name}" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="2"/>
+            <StackPanel HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Top" Orientation="Horizontal">
+                <TextBlock Margin="5,0" Foreground="White" Text="{x:Bind star.fansCount, Converter={StaticResource StringFormatConverter}, ConverterParameter='粉丝数:{0}'}"/>
+                <TextBlock Margin="5,0" Foreground="White" Text="{x:Bind star.rank, Converter={StaticResource StringFormatConverter}, ConverterParameter='排名:NO{0}'}"/>
+                <Button  Margin="5,0" Click="WebButton_Click" Content="详细资料" FontSize="10" VerticalAlignment="Top" Background="Transparent" Foreground="White" BorderBrush="HotPink" BorderThickness="1"/>
+            </StackPanel>
+        </Grid>
+        <Pivot Grid.Row="1">
+            <PivotItem Header="动态" Foreground="HotPink">
+                <GridView IsItemClickEnabled="True" ItemClick="Video_ItemClick" x:Name="lvstarVideo" ItemTemplate="{StaticResource starVideosTemplate}"/>
+            </PivotItem>
+            <PivotItem Header="作品集" Foreground="HotPink"/>
+            <PivotItem Header="粉丝区" Foreground="HotPink"/>
+        </Pivot>
+    </Grid>
+</Page>

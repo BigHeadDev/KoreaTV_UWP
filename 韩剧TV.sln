@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2009
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "韩剧TV", "韩剧TV\韩剧TV.csproj", "{4554BEBB-859E-4BD3-8316-9D61FDE44976}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|ARM = Debug|ARM
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|ARM = Release|ARM
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4554BEBB-859E-4BD3-8316-9D61FDE44976}.Debug|ARM.ActiveCfg = Debug|ARM
+		{4554BEBB-859E-4BD3-8316-9D61FDE44976}.Debug|ARM.Build.0 = Debug|ARM
+		{4554BEBB-859E-4BD3-8316-9D61FDE44976}.Debug|ARM.Deploy.0 = Debug|ARM
+		{4554BEBB-859E-4BD3-8316-9D61FDE44976}.Debug|x64.ActiveCfg = Debug|x64
+		{4554BEBB-859E-4BD3-8316-9D61FDE44976}.Debug|x64.Build.0 = Debug|x64
+		{4554BEBB-859E-4BD3-8316-9D61FDE44976}.Debug|x64.Deploy.0 = Debug|x64
+		{4554BEBB-859E-4BD3-8316-9D61FDE44976}.Debug|x86.ActiveCfg = Debug|x86
+		{4554BEBB-859E-4BD3-8316-9D61FDE44976}.Debug|x86.Build.0 = Debug|x86
+		{4554BEBB-859E-4BD3-8316-9D61FDE44976}.Debug|x86.Deploy.0 = Debug|x86
+		{4554BEBB-859E-4BD3-8316-9D61FDE44976}.Release|ARM.ActiveCfg = Release|ARM
+		{4554BEBB-859E-4BD3-8316-9D61FDE44976}.Release|ARM.Build.0 = Release|ARM
+		{4554BEBB-859E-4BD3-8316-9D61FDE44976}.Release|ARM.Deploy.0 = Release|ARM
+		{4554BEBB-859E-4BD3-8316-9D61FDE44976}.Release|x64.ActiveCfg = Release|x64
+		{4554BEBB-859E-4BD3-8316-9D61FDE44976}.Release|x64.Build.0 = Release|x64
+		{4554BEBB-859E-4BD3-8316-9D61FDE44976}.Release|x64.Deploy.0 = Release|x64
+		{4554BEBB-859E-4BD3-8316-9D61FDE44976}.Release|x86.ActiveCfg = Release|x86
+		{4554BEBB-859E-4BD3-8316-9D61FDE44976}.Release|x86.Build.0 = Release|x86
+		{4554BEBB-859E-4BD3-8316-9D61FDE44976}.Release|x86.Deploy.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C2ECFF7B-91A0-44B8-A761-C719EA52F3B4}
+	EndGlobalSection
+EndGlobal

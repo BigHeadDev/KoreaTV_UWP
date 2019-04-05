@@ -1,0 +1,129 @@
+﻿<Page
+    x:Class="韩剧TV.View.Homes.RecommendPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:韩剧TV.View.Homes"
+    xmlns:Tools="using:韩剧TV.Tools"
+
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <Style TargetType="GridView">
+                <Setter Property="Foreground" Value="#FF5593"/>
+                <Setter Property="FontSize" Value="20"/>
+            </Style>
+            <!--模板1韩剧-->
+            <DataTemplate x:Key="DataTemplate1">
+                <GridView IsItemClickEnabled="True" ItemClick="Hanju_ItemClick" Header="{Binding title,Converter={StaticResource StringFormatConverter},ConverterParameter='💕{0}>>'}" ItemsSource="{Binding items}" ItemTemplate="{StaticResource seriesTemplate}"/>
+            </DataTemplate>
+            <!--模板2明星视频-->
+            <DataTemplate x:Key="DataTemplate2">
+                <GridView IsItemClickEnabled="True" ItemClick="Video_ItemClick"  Header="{Binding title,Converter={StaticResource StringFormatConverter},ConverterParameter='💕{0}>>'}" ItemsSource="{Binding items}" ItemTemplate="{StaticResource videoTemplate}"/>
+            </DataTemplate>
+            <!--模板3其他视频-->
+            <DataTemplate x:Key="DataTemplate3">
+                <GridView  IsItemClickEnabled="True" ItemClick="Video_ItemClick"  Header="{Binding title,Converter={StaticResource StringFormatConverter},ConverterParameter='💕{0}>>'}" ItemsSource="{Binding items}" ItemTemplate="{StaticResource videoTemplate}"/>
+            </DataTemplate>
+            <!--模板4直播-->
+            <DataTemplate x:Key="DataTemplate4">
+                <GridView  Visibility="{Binding extItems,Converter={StaticResource VisibilityConverter}}" Header="{Binding title,Converter={StaticResource StringFormatConverter},ConverterParameter='💕{0}>>'}" ItemsSource="{Binding extItems}" ItemTemplate="{StaticResource liveTemplate}"/>
+            </DataTemplate>
+            <!--模板5热门视频-->
+            <DataTemplate x:Key="DataTemplate5">
+                <GridView IsItemClickEnabled="True" ItemClick="Video_ItemClick"   Header="{Binding title,Converter={StaticResource StringFormatConverter},ConverterParameter='💕{0}>>'}" ItemsSource="{Binding items}" ItemTemplate="{StaticResource videoTemplate}"/>
+            </DataTemplate>
+            <Tools:MyTemplateSelector x:Key="Selector" x:Name="MyTemplateSelector" DataTemplate1="{StaticResource DataTemplate1}" DataTemplate2="{StaticResource DataTemplate2}" DataTemplate3="{StaticResource DataTemplate3}" DataTemplate4="{StaticResource DataTemplate4}" DataTemplate5="{StaticResource DataTemplate5}"/>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ms-appx:///Themes/MyTemplates.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <ScrollViewer VerticalScrollBarVisibility="Hidden">
+        <RelativePanel>
+
+                <Grid x:Name="gridroot" Width="auto" VerticalAlignment="Top" Visibility="Collapsed">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition x:Name="gridColumL" Width="*"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition x:Name="gridColumR" Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <VisualStateManager.VisualStateGroups>
+                        <VisualStateGroup>
+                            <VisualState>
+                                <VisualState.StateTriggers>
+                                    <AdaptiveTrigger MinWindowWidth="727"/>
+                                </VisualState.StateTriggers>
+                                <VisualState.Setters>
+                                    <Setter Target="gridColumL.Width" Value="auto"/>
+                                    <Setter Target="gridColumR.Width" Value="auto"/>
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateManager.VisualStateGroups>
+                    <!--左-->
+            <Grid Grid.Column="0">
+                <Grid.Background>
+                    <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
+                        <GradientStopCollection>
+                            <GradientStop Offset="0.8" Color="Black"/>
+                            <GradientStop Offset="1" Color="Gray"/>
+                        </GradientStopCollection>
+                    </LinearGradientBrush>
+                </Grid.Background>
+                <FlipView x:Name="fvLeft" Opacity="0.5" IsEnabled="False">
+                    <FlipView.ItemTemplate>
+                        <DataTemplate>
+                            <Image  Source="{Binding}" Stretch="None"/>
+                        </DataTemplate>
+                    </FlipView.ItemTemplate>
+                </FlipView>
+            </Grid>
+
+            <!--中-->
+        <Grid Grid.Column="1" x:Name="gridCenter" Height="auto" VerticalAlignment="Top">
+            <FlipView SelectionChanged="FvCenter_SelectionChanged" Height="auto" x:Name="fvCenter">
+                <FlipView.ItemTemplate>
+                    <DataTemplate>
+                        <Image Source="{Binding}" Stretch="Uniform"/>
+                    </DataTemplate>
+                </FlipView.ItemTemplate>
+            </FlipView>
+        </Grid>
+
+        <!--右-->
+            <Grid Grid.Column="2">
+                <Grid.Background>
+                    <LinearGradientBrush StartPoint="1,0.5" EndPoint="0,0.5">
+                        <GradientStopCollection>
+                            <GradientStop Offset="0.8" Color="Black"/>
+                            <GradientStop Offset="1" Color="Gray"/>
+                        </GradientStopCollection>
+                    </LinearGradientBrush>
+                </Grid.Background>
+                <FlipView x:Name="fvRight" Opacity="0.3" IsEnabled="False">
+                    <FlipView.ItemTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding}"  Stretch="None"/>
+                        </DataTemplate>
+                    </FlipView.ItemTemplate>
+                </FlipView>
+            </Grid>
+        </Grid>
+        <Grid RelativePanel.Below="gridroot" Width="auto" x:Name="gridScnd">
+                    <GridView ItemClick="csm_ItemClick" IsItemClickEnabled="True" HorizontalAlignment="Center" HorizontalContentAlignment="Center"  x:Name="lvCsm" ItemTemplate="{StaticResource csmTemplate}" ItemsSource="csms">
+                    </GridView>
+            </Grid>
+        <Grid RelativePanel.Below="gridScnd" x:Name="gridThrd">
+                    <Border x:Name="hanjuThumb_width" Width="120"/>
+                    <Border x:Name="videoThumb_width" Width="180"/>
+                    <ListView HorizontalAlignment="Center" SelectionMode="None" ItemTemplateSelector="{StaticResource Selector}" x:Name="lvRecs"/>
+                </Grid>
+        </RelativePanel>
+        </ScrollViewer>
+    </Grid>
+</Page>

@@ -1,0 +1,26 @@
+﻿<Page
+    x:Class="韩剧TV.View.Homes.StarPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:韩剧TV.View.Homes"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ms-appx:///Themes/MyTemplates.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <ScrollViewer VerticalScrollBarVisibility="Hidden">
+            <StackPanel>
+                <Border x:Name="videoThumb_width" Width="160"/>
+                <Border x:Name="starThumb_width" Width="75"/>
+                <GridView Header="🏆明星排行榜" HorizontalAlignment="Left" IsItemClickEnabled="True" ItemClick="lvStarsClick" x:Name="lvStars" ItemsSource="starsList" ItemTemplate="{StaticResource starsTemplate}"/>
+                <GridView IsItemClickEnabled="True" ItemClick="Video_ItemClick"  Header="💕明星动态" x:Name="lvVideo" HorizontalAlignment="Left" ItemsSource="videoList" ItemTemplate="{StaticResource videoTemplate}"/>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>

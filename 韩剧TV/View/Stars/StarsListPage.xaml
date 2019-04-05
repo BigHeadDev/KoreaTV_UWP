@@ -1,0 +1,49 @@
+﻿<Page
+    x:Class="韩剧TV.View.StarsListPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:韩剧TV.View"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ms-appx:///Themes/MyTemplates.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="70*"/>
+        </Grid.RowDefinitions>
+        <ListView IsItemClickEnabled="True" ItemClick="btnStarInfo" x:Name="lv123" HorizontalAlignment="Center" Grid.Row="0" ItemsSource="stars123List" ItemTemplate="{StaticResource 123StarTemplate}">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapGrid Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                    <Setter Property="Background" Value="Transparent"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListViewItem>
+
+            </ListViewItem>
+        </ListView>
+        <ListView x:Name="lvOther" IsItemClickEnabled="True" ItemClick="btnStarInfo" Grid.Row="1" ItemsSource="hotStarsList" ItemTemplate="{StaticResource otherStarsList}">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                    <Setter Property="Background" Value="Transparent"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListViewItem>
+                
+            </ListViewItem>
+        </ListView>
+    </Grid>
+</Page>

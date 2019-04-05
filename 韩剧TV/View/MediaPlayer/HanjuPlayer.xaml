@@ -1,0 +1,22 @@
+﻿<Page
+    x:Class="韩剧TV.View.MediaPlayer.HanjuPlayer"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:韩剧TV.View.MediaPlayer"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid x:Name="Animation">
+            <ProgressRing IsActive="True" Width="80" Height="80" Margin="0,0,0,100">
+            </ProgressRing>
+            <TextBlock  x:Name="Information" VerticalAlignment="Center" Margin="0,200,0,0"  TextAlignment="Center" Foreground="#FF5593" FontFamily="DengXian" FontSize="36">
+            Loading...
+            </TextBlock>
+        </Grid>
+        <MediaElement x:Name="mediaHnaju" AreTransportControlsEnabled="True" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Uniform" AutoPlay="True">
+        </MediaElement>
+    </Grid>
+</Page>

@@ -1,0 +1,28 @@
+﻿<Page
+    x:Class="韩剧TV.View.HomePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:韩剧TV.View.Homes"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.Resources>
+        <Style TargetType="PivotHeaderItem">
+            <Setter Property="Foreground" Value="#FF5593"/>
+        </Style>
+    </Page.Resources>
+    <Grid>
+        <Pivot x:Name="pivotHome" SelectedIndex="1" >
+            <PivotItem Header="明星">
+                <local:StarPage/>
+            </PivotItem>
+            <PivotItem  Header="推荐">
+                <local:RecommendPage/>
+            </PivotItem>
+            <PivotItem Header="韩剧">
+                <local:SeriesPage/>
+            </PivotItem>
+        </Pivot>
+    </Grid>
+</Page>
