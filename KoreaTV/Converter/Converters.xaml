@@ -1,0 +1,11 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:cvt="using:KoreaTV.Converter">
+    <cvt:HanjuUpdateConverter x:Key="HanjuUpdateConverter" />
+    <cvt:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+    <cvt:TimeSpanToUpdateConverter x:Key="TimeSpanToUpdateConverter" />
+    <cvt:HanjuFinishedConverter x:Key="HanjuFinishedConverter" />
+    <cvt:StringFormatConverter x:Key="StringFormatConverter" />
+    <cvt:RankConverter x:Key="RankConverter" />
+</ResourceDictionary>

@@ -1,0 +1,89 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <DataTemplate x:Key="HanjuTemplate">
+        <Grid
+            x:Name="img"
+            MaxWidth="150"
+            Margin="2">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="20" />
+            </Grid.RowDefinitions>
+            <Grid CornerRadius="10">
+                <Grid>
+                    <Image Source="{Binding thumb}" Stretch="UniformToFill" />
+                    <Image
+                        Height="40"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
+                        Visibility="{Binding isPreview, Converter={StaticResource BoolToVisibilityConverter}}" />
+                    <Image
+                        Height="40"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
+                        Source="/Assets/Icons/new_series.png"
+                        Visibility="{Binding updateTime, Converter={StaticResource TimeSpanToUpdateConverter}}" />
+                    <Image
+                        Height="30"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
+                        Source="/Assets/Icons/live_ing.png"
+                        Visibility="{Binding living, Converter={StaticResource BoolToVisibilityConverter}}" />
+                </Grid>
+                <Border
+                    Margin="0,5"
+                    VerticalAlignment="Bottom"
+                    Background="#80333333">
+                    <Grid>
+                        <TextBlock HorizontalAlignment="Left" Foreground="White">
+                            <Run Text="{Binding isFinished, Converter={StaticResource HanjuUpdateConverter}, ConverterParameter='更新至'}" />
+                            <Run Text="{Binding count, Converter={StaticResource StringFormatConverter}, ConverterParameter='集'}" />
+                            <Run Text="{Binding isFinished, Converter={StaticResource HanjuFinishedConverter}, ConverterParameter='完结'}" />
+                        </TextBlock>
+                        <TextBlock
+                            HorizontalAlignment="Right"
+                            Foreground="Gold"
+                            Text="{Binding rank, Converter={StaticResource RankConverter}}" />
+                    </Grid>
+                </Border>
+
+            </Grid>
+            <TextBlock
+                Grid.Row="1"
+                HorizontalAlignment="Center"
+                Text="{Binding name}"
+                TextWrapping="Wrap" />
+        </Grid>
+    </DataTemplate>
+    <DataTemplate x:Key="ShotVideoTemplate">
+        <Grid MaxWidth="222" Margin="2">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="40" />
+            </Grid.RowDefinitions>
+            <Image Source="{Binding thumb}" Stretch="UniformToFill" />
+            <TextBlock
+                Grid.Row="2"
+                FontSize="15"
+                Foreground="Black"
+                Text="{Binding title}"
+                TextTrimming="WordEllipsis"
+                TextWrapping="Wrap" />
+        </Grid>
+    </DataTemplate>
+    <DataTemplate x:Key="StarsTemplate" />
+
+    <DataTemplate x:Key="HanjuListTemplate">
+        <GridView
+            Header="{Binding title}"
+            IsItemClickEnabled="True"
+            ItemTemplate="{StaticResource HanjuTemplate}"
+            ItemsSource="{Binding items}" />
+    </DataTemplate>
+    <DataTemplate x:Key="ShotVideoListTemplate">
+        <GridView
+            Header="{Binding title}"
+            IsItemClickEnabled="True"
+            ItemTemplate="{StaticResource ShotVideoTemplate}"
+            ItemsSource="{Binding items}" />
+    </DataTemplate>
+</ResourceDictionary>
