@@ -27,34 +27,20 @@
             <FlipView
                 x:Name="fvLeft"
                 IsEnabled="False"
+                ItemTemplate="{StaticResource BannerTemplate}"
                 ItemsSource="{Binding ElementName=thisElement, Path=BannerModels}"
                 Opacity="0.5"
-                SelectedIndex="0">
-                <FlipView.ItemTemplate>
-                    <DataTemplate>
-                        <Image Source="{Binding Path=imgUrl}" Stretch="UniformToFill" />
-                    </DataTemplate>
-                </FlipView.ItemTemplate>
-            </FlipView>
+                SelectedIndex="0" />
         </Grid>
 
         <!--  中  -->
         <Grid Grid.Column="1">
             <FlipView
                 x:Name="fvCenter"
+                ItemTemplate="{StaticResource BannerTemplate}"
                 ItemsSource="{Binding ElementName=thisElement, Path=BannerModels}"
                 SelectedIndex="0"
-                SelectionChanged="fvCenter_SelectionChanged">
-                <FlipView.ItemTemplate>
-                    <DataTemplate>
-                        <Image
-                            Source="{Binding Path=imgUrl}"
-                            Stretch="Fill"
-                            ToolTipService.Placement="Mouse"
-                            ToolTipService.ToolTip="{Binding Path=title}" />
-                    </DataTemplate>
-                </FlipView.ItemTemplate>
-            </FlipView>
+                SelectionChanged="fvCenter_SelectionChanged" />
             <GridView
                 Height="25"
                 HorizontalAlignment="Right"
@@ -62,7 +48,7 @@
                 IsItemClickEnabled="False"
                 ItemContainerStyle="{StaticResource IndexItemStyle}"
                 ItemsSource="{Binding ElementName=thisElement, Path=BannerModels}"
-                SelectedIndex="{Binding ElementName=fvCenter, Path=SelectedIndex, Mode=OneWay}">
+                SelectedIndex="{Binding ElementName=fvCenter, Path=SelectedIndex, Mode=TwoWay}">
                 <GridView.ItemTemplate>
                     <DataTemplate>
                         <Border />
@@ -88,15 +74,10 @@
             <FlipView
                 x:Name="fvRight"
                 IsEnabled="False"
+                ItemTemplate="{StaticResource BannerTemplate}"
                 ItemsSource="{Binding ElementName=thisElement, Path=BannerModels}"
                 Opacity="0.3"
-                SelectedIndex="2">
-                <FlipView.ItemTemplate>
-                    <DataTemplate>
-                        <Image Source="{Binding Path=imgUrl}" Stretch="UniformToFill" />
-                    </DataTemplate>
-                </FlipView.ItemTemplate>
-            </FlipView>
+                SelectedIndex="2" />
         </Grid>
     </Grid>
 </UserControl>

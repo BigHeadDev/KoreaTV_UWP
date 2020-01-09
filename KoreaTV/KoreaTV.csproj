@@ -167,6 +167,9 @@
     <Content Include="Assets\Icons\tv_live.png" />
     <Content Include="Assets\Icons\v_follow.png" />
     <Content Include="Assets\Icons\zy.png" />
+    <Content Include="Assets\Images\Banner_Default.jpg" />
+    <Content Include="Assets\Images\Thumb_Default.jpg" />
+    <Content Include="Assets\Images\Thumb_Default2.jpg" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />

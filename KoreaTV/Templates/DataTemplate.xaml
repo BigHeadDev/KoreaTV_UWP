@@ -10,6 +10,7 @@
             </Grid.RowDefinitions>
             <Grid CornerRadius="10">
                 <Grid>
+                    <Image Source="/Assets/Images/Thumb_Default.jpg" />
                     <Image Source="{Binding thumb}" Stretch="UniformToFill" />
                     <Image
                         Height="40"
@@ -60,6 +61,7 @@
                 <RowDefinition />
                 <RowDefinition Height="40" />
             </Grid.RowDefinitions>
+            <Image Source="/Assets/Images/Thumb_Default2.jpg" />
             <Image Source="{Binding thumb}" Stretch="UniformToFill" />
             <TextBlock
                 Grid.Row="2"
@@ -85,5 +87,11 @@
             IsItemClickEnabled="True"
             ItemTemplate="{StaticResource ShotVideoTemplate}"
             ItemsSource="{Binding items}" />
+    </DataTemplate>
+    <DataTemplate x:Key="BannerTemplate">
+        <Grid>
+            <Image Source="/Assets/Images/Banner_Default.jpg" />
+            <Image Source="{Binding Path=imgUrl}" Stretch="UniformToFill" />
+        </Grid>
     </DataTemplate>
 </ResourceDictionary>
