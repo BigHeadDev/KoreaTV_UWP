@@ -1,4 +1,8 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:i="using:Microsoft.Xaml.Interactivity">
     <DataTemplate x:Key="HanjuTemplate">
         <Grid
             x:Name="img"
@@ -86,7 +90,13 @@
             Header="{Binding title}"
             IsItemClickEnabled="True"
             ItemTemplate="{StaticResource ShotVideoTemplate}"
-            ItemsSource="{Binding items}" />
+            ItemsSource="{Binding items}">
+            <i:Interaction.Behaviors>
+                <core:EventTriggerBehavior EventName="ItemClick">
+                    <core:InvokeCommandAction Command="{Binding ShotVideoItemClikedCommand}" />
+                </core:EventTriggerBehavior>
+            </i:Interaction.Behaviors>
+        </GridView>
     </DataTemplate>
     <DataTemplate x:Key="BannerTemplate">
         <Grid>

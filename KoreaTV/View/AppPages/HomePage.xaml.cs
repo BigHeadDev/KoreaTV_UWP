@@ -22,6 +22,7 @@ namespace KoreaTV.View.AppPages {
     public sealed partial class HomePage : Page {
         public HomePage() {
             this.InitializeComponent();
+            NavigationCacheMode = NavigationCacheMode.Enabled;
         }
     }
 }

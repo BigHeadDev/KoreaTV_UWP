@@ -1,0 +1,23 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:KoreaTV.Theme">
+
+    <ControlTemplate x:Key="MediaElementEx" TargetType="MediaPlayerElement">
+        <Grid x:Name="LayoutRoot">
+            <Border Background="Transparent" />
+            <Image
+                x:Name="PosterImage"
+                Source="{TemplateBinding PosterSource}"
+                Stretch="{TemplateBinding Stretch}"
+                Visibility="Collapsed" />
+            <MediaPlayerPresenter
+                x:Name="MediaPlayerPresenter"
+                IsFullWindow="{TemplateBinding IsFullWindow}"
+                MediaPlayer="{TemplateBinding MediaPlayer}"
+                Stretch="{TemplateBinding Stretch}" />
+            <ContentPresenter x:Name="TransportControlsPresenter" Visibility="{TemplateBinding AreTransportControlsEnabled}" />
+            <Grid x:Name="TimedTextSourcePresenter" />
+        </Grid>
+    </ControlTemplate>
+</ResourceDictionary>

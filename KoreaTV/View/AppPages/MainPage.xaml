@@ -8,14 +8,18 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     DataContext="{Binding Source={StaticResource Locator}, Path=Main}"
     mc:Ignorable="d">
-    <NavigationView PaneDisplayMode="Auto">
+
+    <NavigationView
+        BackRequested="NavigationView_BackRequested"
+        IsBackEnabled="{Binding ElementName=frameContent, Path=CanGoBack}"
+        PaneDisplayMode="Auto">
         <NavigationView.MenuItems>
             <NavigationViewItem Content="韩剧" Icon="Home" />
             <NavigationViewItem Content="明星" Icon="SolidStar" />
             <NavigationViewItem Content="短视频" Icon="Video" />
         </NavigationView.MenuItems>
         <Grid>
-            <Frame SourcePageType="{Binding FramePage}" />
+            <Frame x:Name="frameContent" SourcePageType="{Binding FramePage, Mode=TwoWay}" />
         </Grid>
     </NavigationView>
 </Page>

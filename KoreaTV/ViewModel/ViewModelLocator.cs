@@ -11,6 +11,7 @@ namespace KoreaTV.ViewModel {
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<HomeViewModel>();
+            SimpleIoc.Default.Register<VideoPlayViewModel>();
         }
 
         public MainViewModel Main {
@@ -21,6 +22,12 @@ namespace KoreaTV.ViewModel {
         public HomeViewModel Home {
             get {
                 return ServiceLocator.Current.GetInstance<HomeViewModel>();
+            }
+        }
+
+        public VideoPlayViewModel VideoPlay {
+            get {
+                return ServiceLocator.Current.GetInstance<VideoPlayViewModel>();
             }
         }
     }

@@ -2,6 +2,7 @@
 using System;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
+using Windows.UI.Core.Preview;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
@@ -60,6 +61,32 @@ namespace KoreaTV {
                 }
                 // 确保当前窗口处于活动状态
                 Window.Current.Activate();
+                SystemNavigationManagerPreview.GetForCurrentView().CloseRequested += async (sender, args) =>
+                {
+                    var deferral = args.GetDeferral();
+
+                    var messageDialog = new ContentDialog {
+                        Title = "韩剧TV",
+                        Content = "确定要退出吗?",
+                        PrimaryButtonText = "退出",
+                        CloseButtonText = "取消"
+                    };
+
+                    messageDialog.DefaultButton = ContentDialogButton.Primary;
+
+                    var result = await messageDialog.ShowAsync();
+                    switch (result) {
+                        case ContentDialogResult.None:
+                            args.Handled = true;
+                            break;
+                        case ContentDialogResult.Primary:
+                            break;
+                        default:
+                            break;
+                    }
+
+                    deferral.Complete();
+                }; ;
             }
         }
 

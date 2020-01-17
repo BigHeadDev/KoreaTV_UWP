@@ -3,6 +3,7 @@ using GalaSoft.MvvmLight.Command;
 using KoreaTV.AppClass;
 using KoreaTV.Helper;
 using KoreaTV.Model;
+using KoreaTV.View.AppPages;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using Windows.UI.Xaml;
@@ -52,6 +53,17 @@ namespace KoreaTV.ViewModel.AppViewModel {
                         var image = (obj.OriginalSource as Image);
                         var banner = image.DataContext as Banners;
                     }
+                });
+            }
+        }
+
+        private RelayCommand<ItemClickEventArgs> shotVideoItemClikedCommand;
+        public RelayCommand<ItemClickEventArgs> ShotVideoItemClikedCommand {
+            get {
+                return shotVideoItemClikedCommand ?? new RelayCommand<ItemClickEventArgs>((args) => {
+                    var item = args.ClickedItem as Items;
+                    ViewModelLocator.Current.VideoPlay.VideoItem = item;
+                    ViewModelLocator.Current.Main.FramePage = typeof(VideoPlayer);
                 });
             }
         }

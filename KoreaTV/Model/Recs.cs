@@ -1,9 +1,13 @@
 ﻿using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
+using KoreaTV.View.AppPages;
+using KoreaTV.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Xaml.Controls;
 
 namespace KoreaTV.Model {
 	public class Recs: ObservableObject {
@@ -11,6 +15,16 @@ namespace KoreaTV.Model {
 		public string title { get; set; }
 		public List<Items> items { get; set; }
 		public string danmu { get; set; }
+		private RelayCommand<ItemClickEventArgs> shotVideoItemClikedCommand;
+		public RelayCommand<ItemClickEventArgs> ShotVideoItemClikedCommand {
+			get {
+				return shotVideoItemClikedCommand ?? new RelayCommand<ItemClickEventArgs>((args) => {
+					var item = args.ClickedItem as Items;
+					ViewModelLocator.Current.VideoPlay.VideoItem = item;
+					ViewModelLocator.Current.Main.FramePage = typeof(VideoPlayer);
+				});
+			}
+		}
 	}
 
 	public class Items: ObservableObject {
@@ -41,7 +55,7 @@ namespace KoreaTV.Model {
 		public string videoType { get; set; }
 		public string copyright { get; set; }
 
-
+		
 
 
 	}

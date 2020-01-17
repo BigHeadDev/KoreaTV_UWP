@@ -19,13 +19,9 @@ namespace KoreaTV.View.AppPages {
     /// <summary>
     /// 可用于自身或导航至 Frame 内部的空白页。
     /// </summary>
-    public sealed partial class MainPage : Page {
-        public MainPage() {
+    public sealed partial class VideoPlayer : Page {
+        public VideoPlayer() {
             this.InitializeComponent();
-        }
-
-        private void NavigationView_BackRequested(NavigationView sender, NavigationViewBackRequestedEventArgs args) {
-            frameContent.GoBack();
         }
     }
 }

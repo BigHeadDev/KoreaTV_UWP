@@ -1,0 +1,19 @@
+﻿<Page
+    x:Class="KoreaTV.View.AppPages.VideoPlayer"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:KoreaTV.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:KoreaTV.View.AppPages"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    DataContext="{Binding Source={StaticResource Locator}, Path=VideoPlay}"
+    mc:Ignorable="d">
+
+    <Grid>
+        <MediaElement
+            AreTransportControlsEnabled="True"
+            PosterSource="{Binding VideoItem.thumb}"
+            Source="{Binding VideoItem.source}" />
+    </Grid>
+</Page>

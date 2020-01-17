@@ -9,6 +9,7 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/Converter/Converters.xaml" />
                 <ResourceDictionary Source="/Theme/GridView.xaml" />
+                <ResourceDictionary Source="/Theme/MediaPlayerElement.xaml" />
                 <ResourceDictionary Source="/Templates/DataTemplate.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
